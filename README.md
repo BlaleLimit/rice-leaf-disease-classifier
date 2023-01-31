@@ -17,4 +17,8 @@ SYSTEM folder
 
 Requirements
 * You can install the packages in the requirements.txt file.
+```sh
+  python -m pip install -r requirements.txt
+```
+
 
