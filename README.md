@@ -2,6 +2,9 @@
 
 This folder contains the dataset, past model versions, logs performance records, preprocessing methods, and saved models (H5 Files).
 
+Dataset
+* The model was trained through the [Rice Leaf Diseases](https://www.kaggle.com/datasets/vbookshelf/rice-leaf-diseases) image dataset from Kaggle.
+
 Folders
 * DATASET - Contains the pickle files that were used in training, validating, and testing of the built model.
 * PAST VERSIONS OF RECOGNITION SYTEMS - Contains the past version of the Rice Leaf Recognition System.
