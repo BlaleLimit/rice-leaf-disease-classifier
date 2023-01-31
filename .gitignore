@@ -1,0 +1,12 @@
+# Folders
+__pycache__
+DATASET
+IMAGES
+.venv
+.conda
+
+# Files
+INPUTS/*.jpg
+OUTPUTS/*.txt
+*.exe
+preprocess_.py
