@@ -14,3 +14,7 @@ SYSTEM folder
 * Rice_Leaf_Recognition_System.ipynb - Jupyter notebook consisting the code that will run two models namely, (a) ACNN Model WITH Visual Attention and (b) ACNN Model WITHOUT Visual Attention.
 * Rice_Leaf_Recognition_Comparison.ipynb - Jupyter notebook comparing the performance of the generated *.h5 models.
 * RLRS.py - Python file that accepts image inputs (jpg, jpeg, png) through CLI. The models can be selected based on the available models in SAVED MODELS (H5 files). The system returns the predicted output.
+
+Requirements
+* You can install the packages in the requirements.txt file.
+
