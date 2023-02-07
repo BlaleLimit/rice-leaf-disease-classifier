@@ -8,5 +8,6 @@ Pillow
 PyWavelets
 scikit-image
 scipy
+tensorflow
 tifffile
 wincertstore

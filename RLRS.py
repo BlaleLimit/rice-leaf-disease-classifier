@@ -10,29 +10,16 @@ from preprocess import *
 from classify import *
 
 
-# Argument parser for CLI inputs
-parser = ArgumentParser(description='Classify Rice Leaf Diseases')
-parser.add_argument('-i', '--in_file', help='Input filename')
-parser.add_argument('-m', '--acnn_model', type=int, default=5, help='''
-                Model [0] acnn_model_no_attention_50_one_whole_pickle.h5,
-                Model [1] acnn_model_no_attention_50_v1.1.h5,
-                Model [2] acnn_model_no_attention_50_v1.2.h5,
-                Model [3] acnn_model_no_attention_model.h5,
-                Model [4] acnn_model_no_attention_whole_pickle_lr_0000088.h5,
-                Model [5] acnn_model_no_attention_whole_pickle_lr_00001.h5''')
-parser.add_argument('-l', '--model_location', default='SAVED MODELS (H5 Files)', help='ACNN Models Location')
-
 # Saves input image with uuid4 filename
 def save_input(in_file):
     extension = in_file.split('.')
 
-    if extension[len(extension)-1] in ['jpg', 'jpeg', 'png']:
+    if in_file.endswith(('.jpg', '.jpeg', '.png')):
         print('\nInput accepted')
         filename_uuid = uuid4()
         img = Image.open(in_file)
-        img.save(path.join('INPUTS', f'{str(filename_uuid)}.{extension[len(extension)-1]}'))
-        return f'{str(filename_uuid)}.{extension[len(extension)-1]}'
-        
+        img.save(path.join('INPUTS', f'{str(filename_uuid)}.{extension[-1]}'))
+        return f'{str(filename_uuid)}.{extension[-1]}'    
     else:
         print('Incorrect input or file format')
         return ''
@@ -86,5 +73,21 @@ def main(in_file, acnn_model, model_location):
 
 
 if __name__ == '__main__':
+    # Argument parser for CLI inputs
+    parser = ArgumentParser(description='Classify Rice Leaf Diseases')
+
+    # Required Arguments
+    parser.add_argument('IN_FILE', help='Input filename')
+
+    # Optional Arguments
+    parser.add_argument('-m', '--acnn_model', type=int, default=5, help='''
+                    Model [0] acnn_model_no_attention_50_one_whole_pickle.h5,
+                    Model [1] acnn_model_no_attention_50_v1.1.h5,
+                    Model [2] acnn_model_no_attention_50_v1.2.h5,
+                    Model [3] acnn_model_no_attention_model.h5,
+                    Model [4] acnn_model_no_attention_whole_pickle_lr_0000088.h5,
+                    Model [5] acnn_model_no_attention_whole_pickle_lr_00001.h5''')
+    parser.add_argument('-l', '--model_location', default='SAVED MODELS (H5 Files)', help='ACNN Models Location')
+
     args = parser.parse_args()
-    main(args.in_file, args.acnn_model, args.model_location)
+    main(args.IN_FILE, args.acnn_model, args.model_location)

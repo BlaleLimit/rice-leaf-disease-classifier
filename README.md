@@ -19,6 +19,7 @@ This folder contains the dataset, past model versions, logs performance records,
 * RLRS.py - Python file that accepts image inputs (jpg, jpeg, png) through CLI. The models can be selected based on the available models in SAVED MODELS (H5 files). The system returns the predicted output.
 
 # Requirements
+* Python 3.7
 * You can install the packages in the requirements.txt file.
 ```sh
   python -m pip install -r requirements.txt
